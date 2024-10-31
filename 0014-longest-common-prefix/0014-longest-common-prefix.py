@@ -6,7 +6,7 @@ class Solution:
         minStr = min(strs, key=len)
 
         for i, el in enumerate(minStr):
-            for other in strs:  # 특정 원소
+            for other in strs:  
                 if other[i] != el:
                     return minStr[:i]
         return minStr
