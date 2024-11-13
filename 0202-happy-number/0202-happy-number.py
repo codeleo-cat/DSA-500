@@ -1,13 +1,10 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
+        def get_next(number):
+            return sum(int(digit) ** 2 for digit in str(number))
+
         seen = set()
-        while n != 1:
-            _sum = 0
-            while n:
-                _sum += (n % 10) ** 2
-                n //= 10
-            if _sum in seen:
-                return False
-            seen.add(_sum)
-            n = _sum
-        return True
+        while n != 1 and n not in seen:
+            seen.add(n)
+            n = get_next(n)
+        return n == 1        
